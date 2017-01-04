@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?scenebuilder-background-color 0xfffdccff?>
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="598.0" prefWidth="1070.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="dataAnalisation.part1.sample.Controller">
+  <children>
+    <TabPane prefHeight="598.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <tabs>
+        <Tab text="Таблиці вибірки та незсунених характеристик">
+          <!--Для пошуку таблиць використовувати пошук за ключами:-->
+          <!--Варцаційний ряд-->
+          <!--Класи-->
+          <!--Характеристики-->
+          <!--Критерій згоди-->
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="567.0" prefWidth="527.0">
+              <children>
+                <!--Варіаційний ряд-->
+                <TableView fx:id="varsTableView" prefHeight="324.0" prefWidth="526.0" AnchorPane.rightAnchor="544.0" AnchorPane.topAnchor="236.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="29.0" resizable="false" sortable="false" style="-fx-alignment: center" text="№" fx:id="number" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="74.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Значення" fx:id="value" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="67.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Частота" fx:id="frequency" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="118.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Відносна частота" fx:id="r_Frequency" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="249.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Значення емпіричної ф-ції розподілу" fx:id="distrib" />
+                  </columns>
+                </TableView>
+                <!--Класи-->
+                <TableView id="varsTable" fx:id="classTableView" layoutY="19.0" prefHeight="217.0" prefWidth="526.0" AnchorPane.rightAnchor="544.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="24.0" resizable="false" sortable="false" style="-fx-alignment: center" text="№" fx:id="number_1" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="106.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Межі класу" fx:id="borders" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="55.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Частота" fx:id="c_Frequency" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="108.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Відносна частота" fx:id="c_RFrequency" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="237.0" resizable="false" sortable="false" style="-fx-alignment: center" text="Значення емпіричної ф-ції розподілу" fx:id="c_Distrib" />
+                  </columns>
+                </TableView>
+                <Button fx:id="openFileButton" layoutX="0.0" layoutY="0.0" minHeight="16.0" mnemonicParsing="false" prefHeight="16.0" text="Обрати файл">
+                  <font>
+                    <Font name="System Bold" size="9.0" fx:id="x1" />
+                  </font>
+                </Button>
+                <Button fx:id="createFileButton" font="$x1" layoutX="74.0" minHeight="16.0" mnemonicParsing="false" prefHeight="16.0" text="Створити файл" />
+                <!--Характеристики-->
+                <TableView fx:id="chareсteristicsTableView" layoutX="674.0" layoutY="19.0" prefHeight="324.0" prefWidth="396.0">
+                  <columns>
+                    <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="64.0" resizable="false" style="-fx-alignment: center" text="Значення" fx:id="value_1" />
+                    <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="210.0" resizable="false" style="-fx-alignment: center" text="Середньоквадратичне відхилення" fx:id="sq_conc" />
+                    <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="121.0" resizable="false" style="-fx-alignment: center" text="Довірчий інтервал" fx:id="truth_interval" />
+                  </columns>
+                </TableView>
+                <TableView fx:id="namesTableView" disable="true" focusTraversable="false" layoutX="526.0" layoutY="19.0" prefHeight="324.0" prefWidth="148.0">
+                  <columns>
+                    <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="161.0" resizable="false" sortable="false" style="-fx-alignment: center-left" text="Назва" fx:id="names" />
+                  </columns>
+                </TableView>
+                <!--Критерій згоди-->
+                <TableView fx:id="agreementTableView" layoutX="674.0" layoutY="343.0" prefHeight="200.0" prefWidth="396.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" style="-fx-alignment: center" text="Критерій згоди" fx:id="criterion" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" style="-fx-alignment: center" text="Критичне значення" fx:id="critical_value" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="147.0" style="-fx-alignment: center" text="Висновок" fx:id="conclusion" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Емпіричні функції">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <LineChart fx:id="varlinechart" layoutX="0.0" layoutY="2.0" prefHeight="267.0" prefWidth="1070.0">
+                  <xAxis>
+                    <NumberAxis label="Варіанти" side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis label="Значення емпіричної ф-ції" side="LEFT" />
+                  </yAxis>
+                </LineChart>
+                <LineChart fx:id="classlinechart" layoutX="0.0" layoutY="269.0" prefHeight="284.0" prefWidth="1070.0">
+                  <xAxis>
+                    <NumberAxis label="Класи" side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis label="Значення емпіричної ф-ції" side="LEFT" />
+                  </yAxis>
+                </LineChart>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Гістограма класів">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <LineChart fx:id="classbarchart" layoutX="7.0" layoutY="7.0" prefHeight="567.0" prefWidth="1070.0">
+                  <xAxis>
+                    <NumberAxis label="Класи" side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis label="Частоти" side="LEFT" />
+                  </yAxis>
+                </LineChart>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Ймовірнісна сітка">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <LineChart fx:id="varNetchart" layoutX="0.0" layoutY="0.0" prefHeight="567.0" prefWidth="1070.0">
+                  <xAxis>
+                    <NumberAxis autoRanging="true" label="t" side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis fx:id="netZ" autoRanging="false" label="Z" side="LEFT" />
+                  </yAxis>
+                </LineChart>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Аномальні значення">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <CheckBox id="del" fx:id="delAnomData" layoutX="229.0" layoutY="30.0" mnemonicParsing="false" selected="true" text="CheckBox" />
+                <CheckBox fx:id="changeM" layoutX="229.0" layoutY="70.0" mnemonicParsing="false" selected="true" text="CheckBox" />
+                <Label layoutX="14.0" layoutY="14.0" text="Аномальні значення" />
+                <Label layoutX="14.0" layoutY="53.0" text="К-ть розбиття" />
+                <TextField fx:id="anom" editable="false" layoutX="14.0" layoutY="30.0" prefWidth="200.0" />
+                <TextField fx:id="setM" layoutX="14.0" layoutY="70.0" prefWidth="200.0" />
+                <Button fx:id="btnConfirm" layoutX="14.0" layoutY="108.0" mnemonicParsing="false" text="ОК" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>

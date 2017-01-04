@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+            fx:controller="numericMethods.lab2.sample.controller.Controller">
+    <children>
+        <BorderPane prefHeight="600.0" prefWidth="800.0">
+            <top>
+                <GridPane prefHeight="80.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <!--text="f(x) = 3.25 * ctg(1/x) &#10;1 &lt; x &lt; 4.5&#10;h = 0.58, n = 6"-->
+                        <VBox alignment="TOP_LEFT">
+                            <Label contentDisplay="CENTER" lineSpacing="1.0"
+                                   prefHeight="75.0" prefWidth="266.0"
+                                   text=" f(x) = -cos(x) - 3,25*tg(1/x)"
+                                   textAlignment="CENTER">
+                            </Label>
+                            <Label contentDisplay="CENTER" lineSpacing="1.0"
+                                   prefHeight="75.0" prefWidth="266.0"
+                                   text=" 1.1 &lt; x &lt; 4.5"
+                                   textAlignment="CENTER">
+                                <font>
+                                    <Font size="12.0"/>
+                                </font>
+                            </Label>
+                            <Label contentDisplay="CENTER" lineSpacing="1.0"
+                                   prefHeight="75.0" prefWidth="266.0"
+                                   text=" h = 0.68, n = 5"
+                                   textAlignment="CENTER">
+                                <font>
+                                    <Font size="12.0"/>
+                                </font>
+                            </Label>
+                        </VBox>
+                        <ChoiceBox fx:id="choiceBox" prefHeight="30.0" prefWidth="235.0" GridPane.columnIndex="1"/>
+                        <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startWork" prefHeight="30.0"
+                                prefWidth="235.0" text="Start" GridPane.columnIndex="2"/>
+                    </children>
+                </GridPane>
+            </top>
+            <right>
+                <Canvas fx:id="cnvs" height="400.0" onMouseDragged="#onPress" onMousePressed="#onDown"
+                        onScroll="#scaleChange" width="440.0" BorderPane.alignment="CENTER"/>
+            </right>
+            <left>
+                <TableView fx:id="t1" maxHeight="400.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity"
+                           prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="t1c1" prefWidth="189.0" text="X"/>
+                        <TableColumn fx:id="t1c2" prefWidth="209.0" text="F(x)"/>
+                    </columns>
+                </TableView>
+            </left>
+            <bottom>
+                <VBox>
+                    <Label fx:id="resultLabel" prefHeight="76.0" prefWidth="800.0" BorderPane.alignment="BOTTOM_LEFT">
+                        <font>
+                            <Font size="12.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="result" text="Точное значение = -3.22658" prefHeight="76.0" prefWidth="800.0" BorderPane.alignment="BOTTOM_LEFT">
+                        <font>
+                            <Font size="12.0"/>
+                        </font>
+                    </Label>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>
